@@ -1,0 +1,17 @@
+# =======================================================================================
+# DockerCommands.txt
+# This file contains commands for running the CCRRT/OMPL project in a Docker container.
+#
+# - The docker run command mounts your local code directory into the container for development.
+# - The apt-get command installs ffmpeg, which is required for saving video animations.
+# - The python3 command runs the visualization script to generate path and obstacle animations.
+# =======================================================================================
+
+DockerCommands
+docker run -it -v "C:\Users\prana\OneDrive\Desktop\WPI\MotionPlanning\FinalProject\code:/code/" cchamzas/rbe550-ompl:initial-commit /bin/bash
+
+# Install ffmpeg inside the Docker container (run this inside the container) needed to run /make videos
+apt-get update && apt-get install -y ffmpeg
+
+python3 ../visualize_path.py --pathfile solution_path.txt --obstacles obstacles.txt --trajectory obstacle_trajectory.txt --savevideo
+

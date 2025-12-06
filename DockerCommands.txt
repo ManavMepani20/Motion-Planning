@@ -1,0 +1,14 @@
+DockerCommands
+docker run -it -v "C:\Users\prana\OneDrive\Desktop\WPI\MotionPlanning\FinalProject\code:/code/" cchamzas/rbe550-ompl:initial-commit /bin/bash
+
+python3 visualize_path.py --system pendulum --pathfile ./build/pendulum_path.txt --output pendulum_solution.png
+
+python3 visualize_path.py --system car --pathfile ./build/car_path.txt --obstacles obstacles.txt.txt --output car_solution.png
+
+/usr/local/bin/ompl_benchmark_statistics.py car_benchmark_results.log -d carBenchmarking.db -p
+
+/usr/local/bin/ompl_benchmark_statistics.py pendulum_benchmark_torque3.log -d PendulumBenchmarking3T.db -p
+
+/usr/local/bin/ompl_benchmark_statistics.py pendulum_benchmark_torque3.log -d PendulumBenchmarking5T.db -p
+
+/usr/local/bin/ompl_benchmark_statistics.py pendulum_benchmark_torque3.log -d PendulumBenchmarking10T.db -p
